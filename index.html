@@ -433,15 +433,150 @@
     }
     footer span { color: var(--green); }
 
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      nav ul { gap: 1rem; }
-      nav a { font-size: 0.65rem; letter-spacing: 1px; }
-      section { padding: 4rem 1.5rem; }
-      .hero { padding: 6rem 1.5rem 2rem; }
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 600;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--green);
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE DRAWER ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(6,10,15,0.98);
+      z-index: 400;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 1.4rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a:active { color: var(--green); }
+
+    /* ── TABLET ── */
+    @media (max-width: 900px) {
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .skills-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      /* Nav */
+      nav { padding: 0.9rem 1.2rem; }
+      nav ul { display: none; }
+      .hamburger { display: flex; }
+
+      /* Sections */
+      section { padding: 3.5rem 1.2rem; }
+      .hero {
+        padding: 5.5rem 1.2rem 2rem;
+        min-height: auto;
+        padding-bottom: 3rem;
+      }
+
+      /* Hero text */
+      .hero h1 { font-size: clamp(2.4rem, 11vw, 3.5rem); }
+      .hero-subtitle {
+        font-size: 0.72rem;
+        letter-spacing: 1px;
+      }
+      .hero-desc { font-size: 0.82rem; max-width: 100%; }
+      .hero-cta { flex-direction: column; gap: 0.8rem; }
+      .btn { text-align: center; padding: 0.85rem 1.2rem; font-size: 0.75rem; }
+      .status-row { flex-direction: column; gap: 0.8rem; margin-top: 2rem; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+      .about-card { padding: 1.4rem; }
+      .info-row { flex-direction: column; gap: 0.2rem; }
+      .info-row .value { text-align: left; font-size: 0.78rem; }
+
+      /* Skills */
+      .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .skill-card { padding: 1.4rem; }
+
+      /* Cert cards — stack badge above info */
+      .cert-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 1.4rem;
+        max-width: 100%;
+      }
+      .cert-badge { width: 64px; height: 64px; font-size: 0.85rem; }
+      .cert-info h3 { font-size: 1.1rem; }
+      .completed-bar, .progress-bar { max-width: 100%; }
+
+      /* Project */
+      .project-card { padding: 1.4rem; }
+      .project-title { font-size: 1.2rem; }
+      .project-features { grid-template-columns: 1fr; gap: 0.7rem; }
+      .tech-stack-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .project-card.completed::before {
+        font-size: 0.5rem;
+        top: 14px; right: -30px;
+        padding: 0.2rem 2.5rem;
+      }
+
+      /* Contact */
       .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+      .contact-text h2 { font-size: 1.8rem; }
+      .contact-link { font-size: 0.78rem; padding: 0.85rem 1rem; }
+
+      /* Terminal */
+      .terminal-body { padding: 1rem; font-size: 0.72rem; line-height: 1.8; overflow-x: auto; }
+      .terminal-bar span { font-size: 0.62rem; }
+      .t-out { padding-left: 0.8rem; word-break: break-word; }
+
+      /* Section titles */
+      .section-title { font-size: 1.8rem; margin-bottom: 2rem; }
+      .section-label { font-size: 0.65rem; }
+
+      /* Divider */
+      .divider { margin: 0 1.2rem; width: auto; }
+
+      /* Footer */
+      footer {
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: center;
+        padding: 1.5rem 1.2rem;
+      }
+    }
+
+    /* ── SMALL PHONES ── */
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 2.2rem; }
+      .tech-stack-grid { grid-template-columns: 1fr; }
+      .hero-tag { font-size: 0.65rem; letter-spacing: 2px; }
     }
   </style>
 </head>
@@ -456,7 +591,19 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"    onclick="closeMenu()">About</a>
+    <a href="#skills"   onclick="closeMenu()">Skills</a>
+    <a href="#certs"    onclick="closeMenu()">Certs</a>
+    <a href="#projects" onclick="closeMenu()">Projects</a>
+    <a href="#contact"  onclick="closeMenu()">Contact</a>
+  </div>
 
   <!-- HERO -->
   <div class="hero">
@@ -498,7 +645,7 @@
           I'm also diving deep into <span>AI & Data Science</span> — because I
           believe the future belongs to people who understand both how to protect
           systems and how to build intelligent ones. My goal is to enter the field as a
-          <span>Software Developer</span> or <span>CyberSecurity Analyst</span> or — roles
+          <span>Software Developer</span> or <span>CyberSecurity Analyst</span> — roles
           where I can develop softwares & protect infrastructure and respond to real threats.
         </p>
         <p>
@@ -522,11 +669,11 @@
         </div>
         <div class="info-row">
           <span class="label">Certification</span>
-          <span class="value green">CEH</span>
+          <span class="value green">CEH (Certified Ethical Hacker)</span>
         </div>
         <div class="info-row">
           <span class="label">Target Roles</span>
-          <span class="value">Software Developer, CyberSecurity Analyst</span>
+          <span class="value">Software Developer / CyberSecurity Analyst</span>
         </div>
         <div class="info-row">
           <span class="label">Status</span>
@@ -795,5 +942,21 @@
     <div>Status: <span>Open to Opportunities</span></div>
   </footer>
 
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
 </body>
 </html>
