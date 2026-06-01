@@ -99,7 +99,6 @@ python -m http.server 8000
 
 - **LinkedIn** — [linkedin.com/in/madhav-nangliya](https://www.linkedin.com/in/madhav-nangliya)
 - **GitHub** — [github.com/madhav-nangliya](https://github.com/madhav-nangliya)
-- **Email** — madhavnangliya@gmail.com
 
 ---
 
