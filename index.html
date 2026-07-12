@@ -359,6 +359,19 @@
       display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0;
     }
     .wip-badge .dot { background: var(--yellow); }
+    .done-badge {
+      font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
+      padding: 0.25rem 0.7rem; border: 1px solid var(--green); color: var(--green);
+      display: flex; align-items: center; gap: 0.4rem; flex-shrink: 0;
+    }
+    .done-badge .dot { background: var(--green); animation: none; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+      font-size: 0.78rem; letter-spacing: 1px; color: var(--green);
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .project-link:hover { opacity: 0.7; }
     .project-desc {
       font-size: 0.88rem; color: var(--text); margin-bottom: 1.8rem;
       border-left: 2px solid rgba(0,255,136,0.3); padding-left: 1rem;
@@ -852,23 +865,22 @@
     <div class="section-title">What I'm Building</div>
     <div class="project-card">
       <div class="project-header">
-        <div class="project-title">Network Monitoring Dashboard</div>
-        <div class="wip-badge"><div class="dot yellow"></div> In Progress</div>
+        <div class="project-title">LanSentry — Network Monitoring Dashboard</div>
+        <div class="done-badge"><div class="dot"></div> Completed</div>
       </div>
       <div class="project-desc">
-        A full-stack web application that gives small businesses real-time visibility
-        into their network. It continuously scans for connected devices, tracks
-        bandwidth usage per host, and automatically raises alerts when unusual or
-        suspicious activity is detected — making enterprise-level monitoring
-        accessible for smaller teams.
+        A full-stack network monitoring tool that auto-discovers every connected
+        device on the network, rescanning every 30 seconds to replace manual
+        IP-by-IP checks with continuous, real-time visibility — plus one-click
+        control to block or unblock any device straight from the dashboard.
       </div>
       <div class="project-features">
-        <div class="feature-item">Real-time connected device discovery</div>
-        <div class="feature-item">Live bandwidth usage per device</div>
-        <div class="feature-item">Alerts for unusual network activity</div>
-        <div class="feature-item">Secure login with role-based access</div>
-        <div class="feature-item">Live charts updated via WebSockets</div>
-        <div class="feature-item">Persistent activity logging in MySQL</div>
+        <div class="feature-item">Auto-discovers devices via Nmap every 30 seconds</div>
+        <div class="feature-item">One-click device block/unblock via Windows Firewall</div>
+        <div class="feature-item">Background multi-threaded scanning keeps UI responsive</div>
+        <div class="feature-item">MySQL-backed alert logging for historical device activity</div>
+        <div class="feature-item">Interactive Chart.js visualizations</div>
+        <div class="feature-item">Dark / light mode UI</div>
       </div>
       <div class="tech-stack-grid">
         <div class="tech-group">
@@ -877,7 +889,7 @@
         </div>
         <div class="tech-group">
           <div class="tech-group-label">Network Scanning</div>
-          <div class="tech-group-items">Nmap · Scapy · psutil</div>
+          <div class="tech-group-items">Nmap</div>
         </div>
         <div class="tech-group">
           <div class="tech-group-label">Database</div>
@@ -885,17 +897,49 @@
         </div>
         <div class="tech-group">
           <div class="tech-group-label">Frontend</div>
-          <div class="tech-group-items">HTML · Tailwind CSS · Chart.js</div>
-        </div>
-        <div class="tech-group">
-          <div class="tech-group-label">Real-time</div>
-          <div class="tech-group-items">Flask-SocketIO</div>
-        </div>
-        <div class="tech-group">
-          <div class="tech-group-label">Auth</div>
-          <div class="tech-group-items">Flask-Login</div>
+          <div class="tech-group-items">HTML · CSS · JavaScript · Chart.js</div>
         </div>
       </div>
+      <a href="https://github.com/madhav-nangliya/LanSentry" class="project-link" target="_blank" rel="noopener">
+        <span>&lt;/&gt;</span> View on GitHub
+      </a>
+    </div>
+
+    <div class="project-card" style="margin-top:2.5rem;">
+      <div class="project-header">
+        <div class="project-title">Insights from Failed Orders — Ride-Hailing Failure Analysis</div>
+        <div class="done-badge"><div class="dot"></div> Completed</div>
+      </div>
+      <div class="project-desc">
+        Analyzed 10,700+ failed ride orders from a real Gett (GetTaxi) case study
+        to uncover why matches between riders and drivers break down, and where
+        the biggest operational gaps are.
+      </div>
+      <div class="project-features">
+        <div class="feature-item">42% of failures occur before a driver is even matched</div>
+        <div class="feature-item">Peak failure window identified at 8–9 AM, tied to driver ETA spikes</div>
+        <div class="feature-item">Riders cancel ~40% faster pre-assignment (IQR-based outlier analysis)</div>
+        <div class="feature-item">H3 hex-clustering shows 80% of order volume in just 17% of active zones</div>
+        <div class="feature-item">Interactive geospatial visualization built with Folium</div>
+        <div class="feature-item">Delivered as a reproducible, documented GitHub repo with a full Jupyter notebook</div>
+      </div>
+      <div class="tech-stack-grid">
+        <div class="tech-group">
+          <div class="tech-group-label">Analysis</div>
+          <div class="tech-group-items">Python · Pandas</div>
+        </div>
+        <div class="tech-group">
+          <div class="tech-group-label">Visualization</div>
+          <div class="tech-group-items">Matplotlib · Seaborn</div>
+        </div>
+        <div class="tech-group">
+          <div class="tech-group-label">Geospatial</div>
+          <div class="tech-group-items">H3 · Folium</div>
+        </div>
+      </div>
+      <a href="https://github.com/madhav-nangliya/failed-orders-analysis" class="project-link" target="_blank" rel="noopener">
+        <span>&lt;/&gt;</span> View on GitHub
+      </a>
     </div>
   </section>
 
