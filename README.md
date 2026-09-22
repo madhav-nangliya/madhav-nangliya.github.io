@@ -1,6 +1,6 @@
 # Madhav Nangliya — Portfolio
 
-> Personal portfolio website showcasing my skills, certifications, and projects in cybersecurity, software development, and data analysis.
+> Personal portfolio website showcasing my skills, certifications, and projects.
 
 ![Status](https://img.shields.io/badge/Status-Live-brightgreen)
 ![CEH](https://img.shields.io/badge/Certification-CEH-green)
@@ -63,7 +63,7 @@ portfolio/
 | About | Background, education, target roles |
 | Skills | Dev, tools, libraries, networking, security |
 | Certifications | CEH (May 2026), TCS iON Career Edge (Apr 2026) |
-| Projects | Network Monitoring Dashboard (in progress) |
+| Projects | Network Monitoring Dashboard |
 | Contact | LinkedIn, GitHub, email + terminal block |
 
 ---
@@ -102,4 +102,4 @@ python -m http.server 8000
 
 ---
 
-*Open to entry-level roles in Software Development, Cybersecurity, Data Analysis, and Business Analysis.*
+*Open to entry-level roles in Business Analysis, Management, Leadership and Social Media Management.*
